@@ -1,5 +1,5 @@
 
-# Experiment No. 8 – N-Queens Problem Using Backtracking
+# Experiment No. 8 – N-Queens Using Backtracking
 
 **Created By:** Krish Mhatre
 
@@ -13,7 +13,8 @@ int n, pos[20], count = 0;
 
 int safe(int row, int col) {
     for(int i = 0; i < row; i++) {
-        if(pos[i] == col || abs(pos[i] - col) == abs(i - row))
+        if(pos[i] == col ||
+           abs(pos[i] - col) == abs(i - row))
             return 0;
     }
     return 1;
@@ -41,8 +42,10 @@ void solve(int row) {
 
 int main() {
     printf("Enter number of queens: ");
-    if(scanf("%d", &n) != 1 || n < 1 || n > 10) {
-        printf("Enter a value from 1 to 10.\n");
+    scanf("%d", &n);
+
+    if(n < 1 || n > 10) {
+        printf("Invalid number of queens.\n");
         return 1;
     }
 
@@ -53,6 +56,12 @@ int main() {
 
     return 0;
 }
+```
+
+## Terminal Input (Copy and Paste)
+
+```text
+4
 ```
 
 ## Output
@@ -80,41 +89,40 @@ Q . . .
 To implement the N-Queens Problem using Backtracking in C.
 
 ## Theory
-The N-Queens Problem is solved using the Backtracking technique.
+The N-Queens Problem involves placing N queens on an N×N chessboard so that no two queens attack each other.
 
-The goal is to place N queens on an N×N chessboard so that no two queens attack each other.
-
-No two queens should be in the same row, column, or diagonal.
+Backtracking is used to try possible positions and remove a queen when a conflict occurs.
 
 ## Algorithm
-1. Start the program.
-2. Enter the number of queens.
-3. Place a queen in a safe position.
-4. Check rows, columns, and diagonals.
-5. If the position is safe, place the queen.
-6. If no safe position exists, backtrack.
-7. Display all possible solutions.
+1. Enter the number of queens.
+2. Place a queen in a safe position.
+3. Check columns and diagonals.
+4. If safe, move to the next row.
+5. If not safe, backtrack.
+6. Display all valid solutions.
 
 ## How to Run
 
-**Step 1:** Save as `queen.c`.
+Save as `queen.c`.
 
-**Step 2:** Compile:
+Compile:
 
 ```bash
 gcc queen.c -o queen
 ```
 
-**Step 3:** Run:
+Run:
 
 ```powershell
 .\queen.exe
 ```
 
+Paste the input from the Terminal Input section.
+
 ## Time Complexity
 
-- Worst Case: O(N!)
-- Space Complexity: O(N)
+- Time Complexity: O(N!) (commonly quoted search bound)
+- Auxiliary Space Complexity: O(N)
 
 ## Conclusion
-Successfully implemented the N-Queens Problem using Backtracking in C to find valid queen arrangements.
+Successfully implemented the N-Queens Problem using Backtracking in C.
